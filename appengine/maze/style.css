@@ -31,7 +31,7 @@ html[dir="RTL"] #capacityBubble {
   height: 80px;
   width: 250px;
 }
-#pegSpin {
+/* #pegSpin {
   height: 50px;
   width: 49px;
   background-position: -343px 0;
@@ -40,7 +40,7 @@ html[dir="RTL"] #capacityBubble {
 }
 html[dir="RTL"] #pegSpin {
   background-position: -441px 0;
-}
+} */
 
 .helpMenuFake {
   border-radius: 4px;
