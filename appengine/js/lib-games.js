@@ -19,92 +19,8 @@ goog.require('Blockly.utils.math');
  * Lookup for names of languages.  Keys should be in ISO 639 format.
  */
 BlocklyGames.LANGUAGE_NAME = {
-//  'ace': 'بهسا اچيه',
-//  'af': 'Afrikaans',
-  'ar': 'العربية',
-//  'az': 'Azərbaycanca',
-  'be': 'беларускі',
-  'be-tarask': 'Taraškievica',
-  'bg': 'български език',
-  'bn': 'বাংলা',
-  'br': 'Brezhoneg',
-//  'ca': 'Català',
-//  'cdo': '閩東語',
-  'cs': 'Česky',
-  'da': 'Dansk',
-  'de': 'Deutsch',
-  'el': 'Ελληνικά',
   'en': 'English',
-  'eo': 'Esperanto',
-  'es': 'Español',
-  'eu': 'Euskara',
-  'fa': 'فارسی',
-  'fi': 'Suomi',
-  'fo': 'Føroyskt',
-  'fr': 'Français',
-//  'frr': 'Frasch',
-  'gl': 'Galego',
-  'ha': 'Hausa',
-//  'hak': '客家話',
-  'he': 'עברית',
-  'hi': 'हिन्दी',
-//  'hrx': 'Hunsrik',
-  'hu': 'Magyar',
-  'hy': 'հայերէն',
-  'ia': 'Interlingua',
-  'id': 'Bahasa Indonesia',
-  'ig': 'Asụsụ Igbo',
-  'is': 'Íslenska',
-  'it': 'Italiano',
-  'ja': '日本語',
-//  'ka': 'ქართული',
-  'kab': 'Taqbaylit',
-//  'km': 'ភាសាខ្មែរ',
-  'ko': '한국어',
-//  'ksh': 'Ripoarėsch',
-//  'ky': 'Кыргызча',
-//  'la': 'Latine',
-//  'lb': 'Lëtzebuergesch',
-  'lt': 'Lietuvių',
-  'lv': 'Latviešu',
-//  'mg': 'Malagasy',
-//  'ml': 'മലയാളം',
-//  'mk': 'Македонски',
-//  'mr': 'मराठी',
-  'ms': 'Bahasa Melayu',
-  'my': 'မြန်မာစာ',
-//  'mzn': 'مازِرونی',
-  'nb': 'Norsk Bokmål',
-  'nl': 'Nederlands, Vlaams',
-//  'oc': 'Lenga d\'òc',
-//  'pa': 'पंजाबी',
-  'pl': 'Polski',
-  'pms': 'Piemontèis',
-//  'ps': 'پښتو',
-  'pt': 'Português',
-  'pt-br': 'Português Brasileiro',
-  'ro': 'Română',
-  'ru': 'Русский',
-  'sc': 'Sardu',
-//  'sco': 'Scots',
-//  'si': 'සිංහල',
-  'sk': 'Slovenčina',
-  'sl': 'Slovenščina',
-  'sq': 'Shqip',
-  'sr': 'Српски',
-  'sv': 'Svenska',
-//  'sw': 'Kishwahili',
-//  'ta': 'தமிழ்',
-  'th': 'ภาษาไทย',
-  'ti': 'ትግርኛ',
-//  'tl': 'Tagalog',
-  'tr': 'Türkçe',
-  'uk': 'Українська',
-  'ur': 'اُردُو‬',
-  'vi': 'Tiếng Việt',
-  'yo': 'Èdè Yorùbá',
-  'zh-hans': '简体中文',
-  'zh-hant': '正體中文'
+  'ro': 'Română'
 };
 
 /**
@@ -137,9 +53,9 @@ BlocklyGames.IS_HTML = /\.html$/.test(window.location.pathname);
  * @param {string} defaultValue Value to return if parameter not found.
  * @return {string} The parameter value or the default value if not found.
  */
-BlocklyGames.getStringParamFromUrl = function(name, defaultValue) {
+BlocklyGames.getStringParamFromUrl = function (name, defaultValue) {
   var val =
-      window.location.search.match(new RegExp('[?&]' + name + '=([^&]+)'));
+    window.location.search.match(new RegExp('[?&]' + name + '=([^&]+)'));
   return val ? decodeURIComponent(val[1].replace(/\+/g, '%20')) : defaultValue;
 };
 
@@ -152,17 +68,17 @@ BlocklyGames.getStringParamFromUrl = function(name, defaultValue) {
  * @param {number} maxValue The maximum legal value.
  * @return {number} A number in the range [min_value, max_value].
  */
-BlocklyGames.getNumberParamFromUrl = function(name, minValue, maxValue) {
+BlocklyGames.getNumberParamFromUrl = function (name, minValue, maxValue) {
   var val = Number(BlocklyGames.getStringParamFromUrl(name, 'NaN'));
   return isNaN(val) ? minValue :
-      Blockly.utils.math.clamp(minValue, val, maxValue);
+    Blockly.utils.math.clamp(minValue, val, maxValue);
 };
 
 /**
  * Is the current language (BlocklyGames.LANG) an RTL language?
  * @return {boolean} True if RTL, false if LTR.
  */
-BlocklyGames.isRtl = function() {
+BlocklyGames.isRtl = function () {
   return BlocklyGames.LANGUAGE_RTL.indexOf(BlocklyGames.LANG) != -1;
 };
 
@@ -181,12 +97,12 @@ BlocklyGames.MAX_LEVEL = 10;
  * @type {number}
  */
 BlocklyGames.LEVEL =
-    BlocklyGames.getNumberParamFromUrl('level', 1, BlocklyGames.MAX_LEVEL);
+  BlocklyGames.getNumberParamFromUrl('level', 1, BlocklyGames.MAX_LEVEL);
 
 /**
  * Common startup tasks for all apps.
  */
-BlocklyGames.init = function() {
+BlocklyGames.init = function () {
   // Set the page title with the content of the H1 title.
   document.title = document.getElementById('title').textContent;
 
@@ -204,7 +120,7 @@ BlocklyGames.init = function() {
       var lang = BlocklyGames.LANGUAGES[i];
       languages.push([BlocklyGames.LANGUAGE_NAME[lang], lang]);
     }
-    var comp = function(a, b) {
+    var comp = function (a, b) {
       // Sort based on first argument ('English', 'Русский', '简体字', etc).
       if (a[0] > b[0]) return 1;
       if (a[0] < b[0]) return -1;
@@ -240,7 +156,7 @@ BlocklyGames.init = function() {
   var viewport = document.querySelector('meta[name="viewport"]');
   if (viewport && screen.availWidth < 725) {
     viewport.setAttribute('content',
-        'width=725, initial-scale=.35, user-scalable=no');
+      'width=725, initial-scale=.35, user-scalable=no');
   }
 
   // Lazy-load Google analytics.
@@ -250,10 +166,10 @@ BlocklyGames.init = function() {
 /**
  * Reload with a different language.
  */
-BlocklyGames.changeLanguage = function() {
+BlocklyGames.changeLanguage = function () {
   var languageMenu = document.getElementById('languageMenu');
   var newLang = encodeURIComponent(
-      languageMenu.options[languageMenu.selectedIndex].value);
+    languageMenu.options[languageMenu.selectedIndex].value);
   var search = window.location.search;
   if (search.length <= 1) {
     search = '?lang=' + newLang;
@@ -264,7 +180,7 @@ BlocklyGames.changeLanguage = function() {
   }
 
   window.location = window.location.protocol + '//' +
-      window.location.host + window.location.pathname + search;
+    window.location.host + window.location.pathname + search;
 };
 
 /**
@@ -274,7 +190,7 @@ BlocklyGames.changeLanguage = function() {
  * @param {number} level Level (1-10).
  * @return {string|undefined} Serialized XML, or undefined.
  */
-BlocklyGames.loadFromLocalStorage = function(name, level) {
+BlocklyGames.loadFromLocalStorage = function (name, level) {
   var xml;
   try {
     xml = window.localStorage[name + level];
@@ -291,7 +207,7 @@ BlocklyGames.loadFromLocalStorage = function(name, level) {
  * @return {string} The textContent of the specified element,
  *     or an error message if the element was not found.
  */
-BlocklyGames.getMsg = function(key) {
+BlocklyGames.getMsg = function (key) {
   var msg = BlocklyGames.getMsgOrNull(key);
   return msg === null ? '[Unknown message: ' + key + ']' : msg;
 };
@@ -302,7 +218,7 @@ BlocklyGames.getMsg = function(key) {
  * @return {?string} The textContent of the specified element,
  *     or null if the element was not found.
  */
-BlocklyGames.getMsgOrNull = function(key) {
+BlocklyGames.getMsgOrNull = function (key) {
   var element = document.getElementById(key);
   if (element) {
     var text = element.textContent;
@@ -320,7 +236,7 @@ BlocklyGames.getMsgOrNull = function(key) {
  * @param {Element|string} el Button element or ID thereof.
  * @param {!Function} func Event handler to bind.
  */
-BlocklyGames.bindClick = function(el, func) {
+BlocklyGames.bindClick = function (el, func) {
   if (!el) {
     throw TypeError('Element not found: ' + el);
   }
@@ -337,7 +253,7 @@ BlocklyGames.bindClick = function(el, func) {
  * @param {number} angle Angle in degrees.
  * @return {number} Standardized angle.
  */
-BlocklyGames.normalizeAngle = function(angle) {
+BlocklyGames.normalizeAngle = function (angle) {
   angle %= 360;
   if (angle < 0) {
     angle += 360;
@@ -349,7 +265,7 @@ BlocklyGames.normalizeAngle = function(angle) {
  * Load the Google Analytics.
  * @private
  */
-BlocklyGames.importAnalytics_ = function() {
+BlocklyGames.importAnalytics_ = function () {
   if (BlocklyGames.IS_HTML) {
     return;
   }
@@ -359,7 +275,7 @@ BlocklyGames.importAnalytics_ = function() {
    * Load command onto Google Analytics queue.
    * @param {...string} var_args Commands.
    */
-  var gaObject = function(var_args) {
+  var gaObject = function (var_args) {
     (gaObject['q'] = gaObject['q'] || []).push(arguments);
   };
   window[gaName] = gaObject;
