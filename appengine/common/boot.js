@@ -13,22 +13,17 @@
 // Redirect to new domain.
 if (location.host == 'blockly-games.appspot.com') {
   location.replace('https://blockly.games' +
-      location.pathname + location.search + location.hash);
+    location.pathname + location.search + location.hash);
 }
 
-(function() {
+(function () {
   // Application path.
   var appName = location.pathname.match(/\/([-\w]+)(\.html)?$/);
   appName = appName ? appName[1].replace('-', '/') : 'index';
 
   // Supported languages (consistent across all apps).
   window['BlocklyGamesLanguages'] = [
-    'ar', 'be', 'be-tarask', 'bg', 'bn', 'br', 'cs', 'da', 'de', 'el',
-    'en', 'eo', 'es', 'eu', 'fa', 'fi', 'fo', 'fr', 'gl', 'ha', 'he',
-    'hi', 'hu', 'hy', 'ia', 'id', 'ig', 'is', 'it', 'ja', 'kab', 'ko',
-    'lt', 'lv', 'ms', 'my', 'nb', 'nl', 'pl', 'pms', 'pt', 'pt-br',
-    'ro', 'ru', 'sc', 'sk', 'sl', 'sq', 'sr', 'sv', 'th', 'ti', 'tr',
-    'uk', 'ur', 'vi', 'yo', 'zh-hans', 'zh-hant'
+    'en', 'ro'
   ];
 
   // Use a series of heuristics that determine the likely language of this user.
@@ -66,7 +61,7 @@ if (location.host == 'blockly-games.appspot.com') {
     // Don't even think of throwing an error.
   }
   script.src = appName + '/generated/' + lang +
-      (debug ? '/uncompressed.js' : '/compressed.js');
+    (debug ? '/uncompressed.js' : '/compressed.js');
   script.type = 'text/javascript';
   document.head.appendChild(script);
 })();

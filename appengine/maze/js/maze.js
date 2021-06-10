@@ -43,7 +43,7 @@ BlocklyInterface.nextLevel = function () {
 };
 
 Maze.MAX_BLOCKS = [undefined, // Level 0.
-  Infinity, Infinity, 3, 6, 6, 6, 6, 8, 8, 11][BlocklyGames.LEVEL];
+  Infinity, Infinity, 2, 5, 5, 5, 5, 7, 7, 10][BlocklyGames.LEVEL];
 
 // Crash type constants.
 Maze.CRASH_STOP = 1;
@@ -74,7 +74,7 @@ Maze.SKINS = [
     sprite: 'maze/pegman.png',
     tiles: 'maze/tiles_pegman.png',
     marker: 'maze/marker.png',
-    background: false,
+    background: 'maze/bg_pegman.jpg',
     look: '#000',
     winSound: ['maze/win.mp3', 'maze/win.ogg'],
     crashSound: ['maze/fail_pegman.mp3', 'maze/fail_pegman.ogg'],
@@ -120,17 +120,17 @@ Maze.map = [
   // Level 1.
   [[0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
-  [0, 1, 1, 1, 1, 1, 0],
-  [0, 1, 0, 1, 0, 1, 0],
-  [0, 1, 2, 1, 1, 3, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 2, 1, 3, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0]],
   // Level 2.
   [[0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 2, 1, 0, 3, 0, 0],
-  [0, 0, 0, 1, 1, 1, 0, 0],
+  [0, 0, 2, 1, 0, 0, 0, 0],
+  [0, 0, 0, 1, 3, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0]],
@@ -383,8 +383,8 @@ Maze.drawMap = function () {
   // Add finish marker.
   var finishMarker = Blockly.utils.dom.createSvgElement('image', {
     'id': 'finish',
-    'height': 70,
-    'width': 70
+    'height': 40,
+    'width': 35
   }, svg);
   finishMarker.setAttributeNS(Blockly.utils.dom.XLINK_NS, 'xlink:href',
     Maze.SKIN.marker);

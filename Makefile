@@ -2,8 +2,8 @@
 # Definitions
 ##############################
 
-USER_APPS = {index,maze}
-ALL_JSON = {./,index,maze}
+USER_APPS = index maze
+ALL_JSON = . index maze
 ALL_TEMPLATES = appengine/template.soy,appengine/index/template.soy,appengine/maze/template.soy
 
 APP_ENGINE_THIRD_PARTY = appengine/third-party

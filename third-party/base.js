@@ -4185,3 +4185,4 @@ goog.createTrustedTypesPolicy = function(name) {
 goog.TRUSTED_TYPES_POLICY_ = goog.TRUSTED_TYPES_POLICY_NAME ?
     goog.createTrustedTypesPolicy(goog.TRUSTED_TYPES_POLICY_NAME + '#base') :
     null;
+    {}

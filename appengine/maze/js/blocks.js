@@ -190,26 +190,3 @@ Blockly.JavaScript['maze_forever'] = function (block) {
   }
   return 'while (notDone()) {\n' + branch + '}\n';
 };
-
-Blockly.Blocks['maze_start'] = {
-  init: function () {
-    this.appendDummyInput()
-      .appendField("After press start");
-    this.appendStatementInput("DO")
-      .setCheck(null)
-      .appendField("execute");
-    this.setColour(330);
-    this.setTooltip("");
-    this.setHelpUrl("");
-  }
-};
-
-Blockly.JavaScript['maze_start'] = function (block) {
-  var branch1 = Blockly.JavaScript.statementToCode(block, 'DO');
-  if (Blockly.JavaScript.Maze_start) {
-    branch1 = Blockly.JavaScript.Maze_start.replace(/%1/g,
-      '\'block_id_' + block.id + '\'') + branch1;
-    //return 'Begin {\n' + branch1 + '}\n';
-    return ';';
-  }
-};
