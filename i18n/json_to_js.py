@@ -152,7 +152,7 @@ def _process_file(path_to_json, target_lang, key_dict):
     try:
         j = json.load(in_file)
         in_file.close()
-    except ValueError, e:
+    except (ValueError, e):
         print('Error reading ' + filename)
         raise InputError(file, str(e))
     out_file = _create_xlf(target_lang)
@@ -161,9 +161,10 @@ def _process_file(path_to_json, target_lang, key_dict):
             try:
                 identifier = key_dict[key]
             except KeyError as e:
-                print('Key "%s" is in %s but not in %s' %
-                      (key, filename, args.key_file))
-                raise e
+                # print('Key "%s" is in %s but not in %s' %
+                    #   (key, filename, args.key_file))
+                # raise e
+                continue
             target = j.get(key)
             # Only insert line breaks for tooltips.
             if key.lower().find('tooltip') != -1:
